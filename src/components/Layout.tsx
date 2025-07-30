@@ -21,11 +21,10 @@ export default function Layout({ children, currentPage, onPageChange }: LayoutPr
 
   const toggleTheme = () => {
     setIsDarkMode(!isDarkMode);
-    if (!isDarkMode) {
+    if (isDarkMode) {
       document.documentElement.classList.remove('dark');
-      document.documentElement.classList.add('dark');
     } else {
-      document.documentElement.classList.remove('dark');
+      document.documentElement.classList.add('dark');
     }
   };
 
@@ -67,9 +66,13 @@ export default function Layout({ children, currentPage, onPageChange }: LayoutPr
               <div className="flex items-center space-x-4">
                 <button
                   onClick={toggleTheme}
-                  className="p-2 rounded-lg bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors"
+                  className="p-2 rounded-lg bg-gray-100 dark:bg-gray-600 hover:bg-gray-200 dark:hover:bg-gray-500 transition-colors border border-gray-200 dark:border-gray-500"
                 >
-                  {isDarkMode ? <Sun className="w-5 h-5 text-yellow-500" /> : <Moon className="w-5 h-5 text-gray-600" />}
+                  {isDarkMode ? (
+                    <Sun className="w-5 h-5 text-yellow-400" />
+                  ) : (
+                    <Moon className="w-5 h-5 text-gray-700" />
+                  )}
                 </button>
                 <button
                   onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
