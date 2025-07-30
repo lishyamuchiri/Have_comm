@@ -46,11 +46,17 @@ export default function Home() {
           Get instant support, discover opportunities, and track your progress with our AI-powered assistant.
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          <button className="bg-gradient-to-r from-purple-600 to-blue-600 text-white px-8 py-4 rounded-xl hover:from-purple-700 hover:to-blue-700 transition-all duration-200 transform hover:scale-105 flex items-center justify-center font-semibold">
+          <button 
+            onClick={() => window.location.hash = '#chat'}
+            className="bg-gradient-to-r from-purple-600 to-blue-600 text-white px-8 py-4 rounded-xl hover:from-purple-700 hover:to-blue-700 transition-all duration-200 transform hover:scale-105 flex items-center justify-center font-semibold"
+          >
             Start Chatting
             <ArrowRight className="w-5 h-5 ml-2" />
           </button>
-          <button className="border-2 border-purple-600 text-purple-600 dark:text-purple-400 px-8 py-4 rounded-xl hover:bg-purple-50 dark:hover:bg-purple-900/20 transition-all duration-200 font-semibold">
+          <button 
+            onClick={() => window.location.hash = '#dashboard'}
+            className="border-2 border-purple-600 text-purple-600 dark:text-purple-400 px-8 py-4 rounded-xl hover:bg-purple-50 dark:hover:bg-purple-900/20 transition-all duration-200 font-semibold"
+          >
             View Dashboard
           </button>
         </div>
@@ -145,10 +151,16 @@ export default function Home() {
           Get started today and discover the opportunities waiting for you.
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          <button className="bg-white text-purple-600 px-8 py-4 rounded-xl hover:bg-gray-100 transition-all duration-200 transform hover:scale-105 font-semibold">
+          <button 
+            onClick={() => window.location.hash = '#chat'}
+            className="bg-white text-purple-600 px-8 py-4 rounded-xl hover:bg-gray-100 transition-all duration-200 transform hover:scale-105 font-semibold"
+          >
             Get Started Now
           </button>
-          <button className="border-2 border-white text-white px-8 py-4 rounded-xl hover:bg-white/10 transition-all duration-200 font-semibold">
+          <button 
+            onClick={() => window.location.hash = '#opportunities'}
+            className="border-2 border-white text-white px-8 py-4 rounded-xl hover:bg-white/10 transition-all duration-200 font-semibold"
+          >
             Learn More
           </button>
         </div>

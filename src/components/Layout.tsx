@@ -21,10 +21,11 @@ export default function Layout({ children, currentPage, onPageChange }: LayoutPr
 
   const toggleTheme = () => {
     setIsDarkMode(!isDarkMode);
-    if (isDarkMode) {
+    if (!isDarkMode) {
       document.documentElement.classList.remove('dark');
-    } else {
       document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
     }
   };
 

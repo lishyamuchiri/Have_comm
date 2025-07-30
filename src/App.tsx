@@ -16,9 +16,27 @@ function App() {
       setIsLoading(false);
     }, 1500);
 
+    // Handle hash navigation
+    const handleHashChange = () => {
+      const hash = window.location.hash.replace('#', '');
+      if (hash && ['home', 'chat', 'dashboard', 'opportunities', 'settings'].includes(hash)) {
+        setCurrentPage(hash);
+      }
+    };
+
+    // Listen for hash changes
+    window.addEventListener('hashchange', handleHashChange);
+    
+    // Check initial hash
+    handleHashChange();
+      window.removeEventListener('hashchange', handleHashChange);
     return () => clearTimeout(timer);
   }, []);
 
+  const handlePageChange = (page: string) => {
+    setCurrentPage(page);
+    window.location.hash = `#${page}`;
+  };
   if (isLoading) {
     return (
       <div className="min-h-screen bg-gradient-to-br from-purple-50 via-white to-blue-50 flex items-center justify-center">
@@ -58,7 +76,7 @@ function App() {
   };
 
   return (
-    <Layout currentPage={currentPage} onPageChange={setCurrentPage}>
+    <Layout currentPage={currentPage} onPageChange={handlePageChange}>
       {renderCurrentPage()}
     </Layout>
   );
