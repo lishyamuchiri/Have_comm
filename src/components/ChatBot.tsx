@@ -32,18 +32,24 @@ export default function ChatBot() {
 
   const simulateBotResponse = (userMessage: string): string => {
     const responses = {
-      funding: "I can help you find funding opportunities! HEVA offers several grant programs including the Entrepreneur Support Grant (up to $10,000) and the Creative Arts Fund (up to $5,000). Would you like me to provide application details?",
-      grant: "Great question about grants! Our most popular programs are: 1) Small Business Startup Grant - $2,500, 2) Women in Business Grant - $7,500, 3) Tech Innovation Grant - $15,000. Which type of business are you planning to start?",
-      apply: "To apply for any of our grants, you'll need: 1) A detailed business plan, 2) Financial projections for 2 years, 3) Your resume and team credentials, 4) Letters of recommendation. The application process typically takes 4-6 weeks. Would you like me to send you the application forms?",
-      business: "I'd love to help with your business questions! HEVA provides mentorship, networking events, workshops, and resource connections. What specific area of your business would you like guidance on - marketing, finance, legal, or operations?",
-      default: "That's a great question! I'm here to help with funding opportunities, business development, grant applications, and connecting you with HEVA's resources. Could you tell me more about what you're specifically looking for?"
+      funding: "🎯 I can help you find funding opportunities! HEVA offers several grant programs:\n\n💰 Entrepreneur Support Grant - up to $10,000\n🎨 Creative Arts Fund - up to $5,000\n🚀 Tech Innovation Grant - up to $15,000\n👩‍💼 Women in Business Grant - up to $7,500\n\nWould you like me to provide application details for any specific program?",
+      grant: "📋 Great question about grants! Here are our most popular programs:\n\n1️⃣ Small Business Startup Grant - $2,500\n2️⃣ Women in Business Grant - $7,500\n3️⃣ Tech Innovation Grant - $15,000\n4️⃣ Creative Arts Fund - $5,000\n5️⃣ Recovery Grant - $7,500\n\nWhich type of business are you planning to start? I can provide more specific guidance!",
+      apply: "📝 To apply for HEVA grants, you'll need:\n\n✅ Detailed business plan\n✅ Financial projections (2 years)\n✅ Resume and team credentials\n✅ Letters of recommendation\n✅ Proof of eligibility\n\n⏱️ Application process: 4-6 weeks\n📧 Would you like me to send you the application forms?",
+      business: "🏢 I'd love to help with your business questions! HEVA provides:\n\n🤝 Mentorship programs\n🌐 Networking events\n📚 Educational workshops\n🔗 Resource connections\n💡 Business development support\n\nWhat specific area needs guidance?\n• Marketing & Sales\n• Finance & Funding\n• Legal & Compliance\n• Operations & Strategy",
+      products: "🛍️ HEVA Products & Services:\n\n💼 Business Development Programs\n🎓 Educational Workshops\n🤝 Mentorship Matching\n💰 Grant & Funding Programs\n🌐 Networking Events\n📊 Market Research Support\n🔧 Technical Assistance\n📈 Growth Acceleration Programs\n\nWhich service interests you most?",
+      support: "🆘 HEVA Support Services:\n\n📞 24/7 Chat Support (that's me!)\n📧 Email Support: support@heva.ca\n📱 Phone: 1-800-HEVA-HELP\n🏢 In-person consultations\n📚 Resource library access\n🎯 Personalized guidance\n\nHow can I assist you today?",
+      opportunities: "🌟 Current Opportunities:\n\n📅 Upcoming Events:\n• Women in Business Workshop - Feb 20\n• Digital Marketing Bootcamp - Feb 25\n• Startup Mentorship Program - Feb 28\n\n💰 Open Grants:\n• Tech Innovation Grant - Deadline: Mar 15\n• Creative Arts Fund - Deadline: Apr 1\n• Recovery Grant - Deadline: Mar 30\n\nWould you like details on any specific opportunity?",
+      default: "👋 That's a great question! I'm HEVA's AI assistant, here to help with:\n\n💰 Funding opportunities & grants\n🏢 Business development support\n🛍️ HEVA products & services\n🌟 Current opportunities & events\n📚 Resources & guidance\n\n🤔 Could you tell me more about what you're specifically looking for? I'm here to help you succeed!"
     };
 
     const message = userMessage.toLowerCase();
-    if (message.includes('funding') || message.includes('money')) return responses.funding;
+    if (message.includes('funding') || message.includes('money') || message.includes('finance')) return responses.funding;
     if (message.includes('grant')) return responses.grant;
-    if (message.includes('apply') || message.includes('application')) return responses.apply;
-    if (message.includes('business') || message.includes('startup')) return responses.business;
+    if (message.includes('apply') || message.includes('application') || message.includes('how to')) return responses.apply;
+    if (message.includes('business') || message.includes('startup') || message.includes('entrepreneur')) return responses.business;
+    if (message.includes('product') || message.includes('service') || message.includes('program')) return responses.products;
+    if (message.includes('support') || message.includes('help') || message.includes('contact')) return responses.support;
+    if (message.includes('opportunity') || message.includes('event') || message.includes('workshop')) return responses.opportunities;
     return responses.default;
   };
 
@@ -210,7 +216,13 @@ export default function ChatBot() {
           
           {/* Quick Actions */}
           <div className="flex flex-wrap gap-2 mt-3">
-            {['How do I apply for grants?', 'Business mentorship program', 'Funding opportunities'].map((suggestion) => (
+            {[
+              'How do I apply for grants?', 
+              'What HEVA products are available?', 
+              'Show me funding opportunities',
+              'Business mentorship program',
+              'Contact support'
+            ].map((suggestion) => (
               <button
                 key={suggestion}
                 onClick={() => setInputText(suggestion)}

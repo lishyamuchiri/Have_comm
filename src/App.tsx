@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Layout from './components/Layout';
 import ChatBot from './components/ChatBot';
+import Home from './components/Home';
 import Dashboard from './components/Dashboard';
 import Opportunities from './components/Opportunities';
 import Settings from './components/Settings';
@@ -41,6 +42,8 @@ function App() {
 
   const renderCurrentPage = () => {
     switch (currentPage) {
+      case 'home':
+        return <Home />;
       case 'chat':
         return <ChatBot />;
       case 'dashboard':

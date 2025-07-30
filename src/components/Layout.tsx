@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Menu, X, MessageCircle, BarChart3, Users, Settings, Sun, Moon } from 'lucide-react';
+import { Menu, X, MessageCircle, BarChart3, Users, Settings, Sun, Moon, Home } from 'lucide-react';
 
 interface LayoutProps {
   children: React.ReactNode;
@@ -12,6 +12,7 @@ export default function Layout({ children, currentPage, onPageChange }: LayoutPr
   const [isDarkMode, setIsDarkMode] = useState(false);
 
   const navigation = [
+    { name: 'Home', icon: Home, id: 'home' },
     { name: 'Chat', icon: MessageCircle, id: 'chat' },
     { name: 'Dashboard', icon: BarChart3, id: 'dashboard' },
     { name: 'Opportunities', icon: Users, id: 'opportunities' },
@@ -20,7 +21,11 @@ export default function Layout({ children, currentPage, onPageChange }: LayoutPr
 
   const toggleTheme = () => {
     setIsDarkMode(!isDarkMode);
-    document.documentElement.classList.toggle('dark');
+    if (isDarkMode) {
+      document.documentElement.classList.remove('dark');
+    } else {
+      document.documentElement.classList.add('dark');
+    }
   };
 
   return (

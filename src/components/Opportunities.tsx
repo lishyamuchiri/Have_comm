@@ -206,8 +206,10 @@ export default function Opportunities() {
               </div>
               
               <button className="w-full bg-gradient-to-r from-purple-600 to-blue-600 text-white py-2 px-4 rounded-lg hover:from-purple-700 hover:to-blue-700 transition-all duration-200 transform hover:scale-105 flex items-center justify-center">
-                Learn More
-                <ExternalLink className="w-4 h-4 ml-2" />
+                <a href="#" className="flex items-center justify-center w-full">
+                  Learn More
+                  <ExternalLink className="w-4 h-4 ml-2" />
+                </a>
               </button>
             </div>
           ))}
@@ -263,10 +265,13 @@ export default function Opportunities() {
                   </div>
                 </div>
                 <div className="mt-4 md:mt-0 md:ml-4">
-                  <button className="bg-gradient-to-r from-purple-600 to-blue-600 text-white py-2 px-6 rounded-lg hover:from-purple-700 hover:to-blue-700 transition-all duration-200 transform hover:scale-105 flex items-center">
+                  <a 
+                    href="#" 
+                    className="bg-gradient-to-r from-purple-600 to-blue-600 text-white py-2 px-6 rounded-lg hover:from-purple-700 hover:to-blue-700 transition-all duration-200 transform hover:scale-105 flex items-center"
+                  >
                     Apply Now
                     <ExternalLink className="w-4 h-4 ml-2" />
-                  </button>
+                  </a>
                 </div>
               </div>
             </div>
